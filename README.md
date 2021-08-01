@@ -3,6 +3,35 @@ $combination = $attributesCombinations[0]
 
 Hi i have a big problem ,i see other tips on same issue but anyone solve mine. I use ps 1.7.7.5 with php 7.3 i'm not a developer Now everytime i try to create an attribute (on old or new product) return me error "can update the setting" so i launch the debug and return that error was on $combination = $attributesCombinations[0]  i see on sql field,cache....everythings but ... someone can help me? thanks
 
+error 500
+Matched route "admin_combination_generate_form".
+Hide context
+[▼
+  "route" => "admin_combination_generate_form"
+  "route_parameters" => [▶]
+  "request_uri" => "http://www.essenzetotalstyle.com/admin095b5akmg/index.php/sell/catalog/products/combinations/form/0?_token=nIT8EY26uezsgxxLB_qlJBtP30k-t7-ZEvIdgtwp6YM"
+  "method" => "GET"
+  
+  stack trace
+  Symfony\Component\Debug\Exception\ContextErrorException:
+Notice: Undefined offset: 0
+
+  at src/Adapter/CombinationDataProvider.php:126
+  at PrestaShop\PrestaShop\Adapter\CombinationDataProvider->completeCombination(array(), object(Product))
+     (src/Adapter/CombinationDataProvider.php:107)
+  at PrestaShop\PrestaShop\Adapter\CombinationDataProvider->getFormCombinations(array('0'), 1)
+     (src/PrestaShopBundle/Controller/Admin/CombinationController.php:53)
+  at PrestaShopBundle\Controller\Admin\CombinationController->generateCombinationFormAction(array('0'))
+     (vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:151)
+  at Symfony\Component\HttpKernel\HttpKernel->handleRaw(object(Request), 1)
+     (vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68)
+  at Symfony\Component\HttpKernel\HttpKernel->handle(object(Request), 1, false)
+     (vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:200)
+  at Symfony\Component\HttpKernel\Kernel->handle(object(Request), 1, false)
+     (admin095b5akmg/index.php:82)
+
+Symfony\Component\Debug\Exception\
+ContextErrorException
 in src/Adapter/CombinationDataProvider.php (line 126)
      *     * @return array     */    public function completeCombination($attributesCombinations, $product)    {        $combination = $attributesCombinations[0];        $attribute_price_impact = 0;        if ($combination['price'] > 0) {            $attribute_price_impact = 1;        } elseif ($combination['price'] < 0) {
      
